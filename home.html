@@ -1,0 +1,287 @@
+<!-- filename: pages/home.html -->
+<!DOCTYPE html>
+<html lang="ar" data-bs-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mini Shop — Home</title>
+  <link rel="icon" type="image/png" href="icon.png">
+    
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold text-uppercase" href="home.html">
+      <i class="fas fa-store me-2"></i>Mini Shop
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+      aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" href="home.html"><i class="fas fa-home me-1"></i> Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="products.html"><i class="fas fa-box-open me-1"></i> Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="cart.html"><i class="fas fa-shopping-cart me-1"></i> Cart <span id="cartCountBadge" class="badge bg-danger ms-1">0</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="add-product.html"><i class="fas fa-plus-circle me-1"></i> Add Product</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html"><i class="fas fa-info-circle me-1"></i> About</a></li>
+        <li class="nav-item d-flex align-items-center ms-3">
+          <button id="themeToggle" class="btn btn-sm btn-outline-secondary me-2" title="Toggle theme"><i class="bi bi-moon-stars"></i></button>
+          <a class="nav-link text-danger fw-semibold" href="#" id="logoutLink"><i class="fas fa-sign-out-alt me-1"></i> Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <!-- Hero Swiper -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="swiper mySwiper shadow rounded mx-auto" style="max-width:1000px;">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="images/banner_home1.png" alt="Banner 1" class="img-fluid rounded mx-auto d-block">
+          </div>
+          <div class="swiper-slide">
+            <img src="images/banner_home2.png" alt="Banner 2" class="img-fluid rounded mx-auto d-block">
+          </div>
+          <div class="swiper-slide">
+            <img src="images/banner_home3.png" alt="Banner 3" class="img-fluid rounded mx-auto d-block">
+          </div>
+          <div class="swiper-slide">
+            <img src="images/banner_home4.png" alt="Banner 4" class="img-fluid rounded mx-auto d-block">
+          </div>
+          <div class="swiper-slide">
+            <img src="images/banner_home5.png" alt="Banner 5" class="img-fluid rounded mx-auto d-block">
+          </div>
+        <!-- Swiper controls -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+<!-- Featured Products (simple cards with Quick View & View Collection) -->
+<section class="container py-5">
+  <h2 class="text-center mb-4">Featured Products</h2>
+  <div id="featuredProducts" class="row g-4"></div>
+
+  <!-- Shop Now Button -->
+  <div class="text-center mt-4">
+    <a href="products.html" class="btn btn-primary btn-lg px-5">Shop Now</a>
+  </div>
+</section>
+
+<!-- Quick View Modal (used by featured cards) -->
+<div class="modal fade" id="quickViewModal" tabindex="-1" aria-labelledby="quickViewLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="quickViewLabel">Product</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body d-flex gap-4 flex-column flex-lg-row">
+        <div style="flex:1">
+          <img id="quickViewImage" src="" alt="" class="img-fluid" style="max-height:360px;object-fit:contain;background:#fff;padding:12px;border:1px solid #eee;">
+        </div>
+        <div style="flex:1">
+          <h5 id="quickViewName" class="mb-2"></h5>
+          <p id="quickViewPrice" class="fw-bold text-primary mb-3"></p>
+          <p id="quickViewDesc" class="small text-muted">This is a demo product. For full details go to the products page.</p>
+          <div class="mt-4">
+            <a href="products.html" class="btn btn-primary me-2">View Collection</a>
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!--Footer -->
+  <footer class="site-footer bg-dark text-light pt-5 pb-3">
+    <div class="container">
+      <div class="row gy-4">
+        <!-- Brand & intro -->
+        <div class="col-lg-4 col-md-6">
+          <a class="navbar-brand fw-bold text-uppercase text-light d-inline-block mb-2 fs-5" href="home.html"><i
+              class="fas fa-store me-2"></i>Mini Shop</a>
+          <p class="small">
+            Mini Shop — a demo e-commerce template for practicing frontend development.
+            Modern, responsive, and easy to extend.
+          </p>
+
+          <div class="mt-3">
+            <strong class="d-block mb-1 small">Accepted payments</strong>
+            <div class="d-flex gap-2 align-items-center">
+              <img src="images/payment_method.png" alt="Payment Methods">
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick links -->
+        <div class="col-lg-2 col-md-6">
+          <h6 class="fw-bold mb-3">Pages</h6>
+          <ul class="list-unstyled small">
+            <li><a href="home.html" class="text-decoration-none">Home</a></li>
+            <li><a href="products.html" class="text-decoration-none">Products</a></li>
+            <li><a href="cart.html" class="text-decoration-none">Cart</a></li>
+            <li><a href="add-product.html" class="text-decoration-none">Add Product</a></li>
+            <li><a href="about.html" class="text-decoration-none">About</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="col-lg-3 col-md-6">
+          <h6 class="fw-bold mb-3">Contact</h6>
+          <ul class="list-unstyled small">
+            <li class="mt-1">+20 1060594850</li>
+            <li>mohamedsaidrady@gmail.com</li>
+            <li class="mt-4">
+              <a href="https://www.facebook.com/share/17JMJCy4yd/" class="me-2"><i
+                  class="fab fa-facebook fa-lg"></i></a>
+              <a href="https://www.linkedin.com/in/mohamed-said57" class="me-2"><i
+                  class="fab fa-linkedin fa-lg"></i></a>
+              <a href="https://github.com/Mohamed-said57/Final-Project" class="me-2"><i
+                  class="fab fa-github fa-lg"></i></a>
+              <a href="https://x.com/Mohamed22026704" class="me-2"><i class="fab fa-twitter fa-lg"></i></a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="col-lg-3 col-md-6">
+          <h6 class="fw-bold mb-3">Newsletter</h6>
+          <p class="small mb-2">Get our latest updates and offers — no spam.</p>
+          <form id="footerNewsletter" class="d-flex gap-2">
+            <input id="newsletterEmail" type="email" class="form-control form-control-sm" placeholder="Your email"
+              required>
+            <button class="btn btn-primary btn-sm" type="submit">Subscribe</button>
+          </form>
+          <div id="newsletterMsg" class="small mt-2"></div>
+        </div>
+      </div>
+
+      <hr class="border-secondary mt-4">
+
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center small">
+        <div class="mb-2 mb-md-0">&copy; <span id="siteYearFooter"></span> Mini Shop. All rights reserved.</div>
+        <div>
+          <a href="#" id="backToTop" class="text-decoration-none small">Back to top ↑</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<!-- libs -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- app scripts -->
+<script src="js/auth.js"></script>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+
+<script>
+  // protect page
+  Auth.requireAuth();
+
+  // init swiper (improved settings)
+  const heroSwiper = new Swiper('.mySwiper', {
+    effect: 'fade',
+    fadeEffect: { crossFade: true },
+
+    slidesPerView: 1,
+    centeredSlides: true,
+    loop: true,
+
+    speed: 800,
+    autoplay: { delay: 3800, disableOnInteraction: false },
+
+    preloadImages: false,
+    lazy: { loadPrevNext: true, loadOnTransitionStart: true },
+
+    pagination: { el: '.swiper-pagination', clickable: true },
+    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+
+    a11y: { enabled: true },
+    watchSlidesProgress: true,
+    watchSlidesVisibility: true,
+  });
+
+  // render featured simple (no add/remove). uses Data module
+  (function renderFeaturedSimple(containerSelector = '#featuredProducts', count = 6) {
+    const container = document.querySelector(containerSelector);
+    if (!container) return;
+
+    const all = (typeof Data !== 'undefined') ? Data.load() : [];
+    const list = all.slice(0, count);
+
+    container.innerHTML = '';
+    const frag = document.createDocumentFragment();
+    list.forEach(p => {
+      const col = document.createElement('div');
+      col.className = 'col-sm-6 col-md-4 col-lg-3';
+      col.innerHTML = `
+        <div class="card h-100 product-card shadow-sm">
+          <div class="ratio ratio-4x3" style="background:#f8f9fa; display:flex; align-items:center; justify-content:center;">
+            <img src="${p.image}" alt="${escapeHtml(p.name)}" loading="lazy" style="max-width:100%; max-height:100%; object-fit:contain; padding:12px;">
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h6 class="card-title mb-1">${escapeHtml(p.name)}</h6>
+            <div class="mb-3 fw-semibold text-primary">${p.price} EGP</div>
+            <div class="mt-auto d-flex gap-2">
+              <button class="btn btn-sm btn-outline-primary flex-grow-1" data-action="quickview" data-id="${p.id}">
+                <i class="bi bi-eye-fill me-1"></i> Quick View
+              </button>
+              <a class="btn btn-sm btn-primary" href="products.html">
+                <i class="bi bi-cart3 me-1"></i> View Collection
+              </a>
+            </div>
+          </div>
+        </div>`;
+      frag.appendChild(col);
+    });
+    container.appendChild(frag);
+
+    // delegated click for quick view buttons inside featured container
+    document.querySelector(containerSelector).addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-action="quickview"]');
+      if (!btn) return;
+      const id = Number(btn.dataset.id);
+      const prod = Data.getById ? Data.getById(id) : (Data.load().find(x => x.id === id));
+      if (!prod) return;
+
+      document.getElementById('quickViewImage').src = prod.image;
+      document.getElementById('quickViewImage').alt = prod.name;
+      document.getElementById('quickViewName').textContent = prod.name;
+      document.getElementById('quickViewPrice').textContent = prod.price + ' EGP';
+      document.getElementById('quickViewDesc').textContent = prod.description || 'Visit the products page for more details.';
+
+      const modalEl = document.getElementById('quickViewModal');
+      const modalObj = new bootstrap.Modal(modalEl);
+      modalObj.show();
+    });
+
+    function escapeHtml(str) {
+      return String(str).replace(/[&<>"']/g, function (m) {
+        return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]);
+      });
+    }
+  })('#featuredProducts', 4);
+
+  // update cart badge
+  Cart.updateCountBadge('#cartCountBadge');
+</script>
+</body>
+</html>

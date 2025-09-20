@@ -1,0 +1,152 @@
+<!-- /// filename: pages/cart.html -->
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Mini Shop — Cart</title>
+  <link rel="icon" type="image/png" href="icon.png">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold text-uppercase" href="home.html">
+      <i class="fas fa-store me-2"></i>Mini Shop
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" href="home.html"><i class="fas fa-home me-1"></i> Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="products.html"><i class="fas fa-box-open me-1"></i> Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="cart.html"><i class="fas fa-shopping-cart me-1"></i> Cart <span id="cartCountBadge" class="badge bg-danger ms-1">0</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="add-product.html"><i class="fas fa-plus-circle me-1"></i> Add Product</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html"><i class="fas fa-info-circle me-1"></i> About</a></li>
+        <li class="nav-item d-flex align-items-center ms-3">
+          <button id="themeToggle" class="btn btn-sm btn-outline-secondary me-2" title="Toggle theme"><i class="bi bi-moon-stars"></i></button>
+          <a class="nav-link text-danger fw-semibold" href="#" id="logoutLink"><i class="fas fa-sign-out-alt me-1"></i> Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <main class="container py-5">
+    <h2 class="mb-4">Shopping Cart</h2>
+    <div id="cartContainer" class="mb-4"></div>
+
+    <div class="d-flex justify-content-between align-items-center">
+      <div>
+        <button id="clearCartBtn" class="btn btn-outline-danger">Clear Cart</button>
+      </div>
+      <div class="text-end">
+        <div class="fw-semibold">Total: <span id="cartTotal">0</span> EGP</div>
+        <div class="mt-2">
+          <button id="checkoutBtn" class="btn btn-success">Checkout</button>
+          <a href="products.html" class="btn btn-secondary ms-2">Continue Shopping</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+<!--Footer -->
+  <footer class="site-footer bg-dark text-light pt-5 pb-3">
+    <div class="container">
+      <div class="row gy-4">
+        <!-- Brand & intro -->
+        <div class="col-lg-4 col-md-6">
+          <a class="navbar-brand fw-bold text-uppercase text-light d-inline-block mb-2 fs-5" href="home.html"><i
+              class="fas fa-store me-2"></i>Mini Shop</a>
+          <p class="small">
+            Mini Shop — a demo e-commerce template for practicing frontend development.
+            Modern, responsive, and easy to extend.
+          </p>
+
+          <div class="mt-3">
+            <strong class="d-block mb-1 small">Accepted payments</strong>
+            <div class="d-flex gap-2 align-items-center">
+              <img src="images/payment_method.png" alt="Payment Methods">
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick links -->
+        <div class="col-lg-2 col-md-6">
+          <h6 class="fw-bold mb-3">Pages</h6>
+          <ul class="list-unstyled small">
+            <li><a href="home.html" class="text-decoration-none">Home</a></li>
+            <li><a href="products.html" class="text-decoration-none">Products</a></li>
+            <li><a href="cart.html" class="text-decoration-none">Cart</a></li>
+            <li><a href="add-product.html" class="text-decoration-none">Add Product</a></li>
+            <li><a href="about.html" class="text-decoration-none">About</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="col-lg-3 col-md-6">
+          <h6 class="fw-bold mb-3">Contact</h6>
+          <ul class="list-unstyled small">
+            <li class="mt-1">+20 1060594850</li>
+            <li>mohamedsaidrady@gmail.com</li>
+            <li class="mt-4">
+              <a href="https://www.facebook.com/share/17JMJCy4yd/" class="me-2"><i
+                  class="fab fa-facebook fa-lg"></i></a>
+              <a href="https://www.linkedin.com/in/mohamed-said57" class="me-2"><i
+                  class="fab fa-linkedin fa-lg"></i></a>
+              <a href="https://github.com/Mohamed-said57/Final-Project" class="me-2"><i
+                  class="fab fa-github fa-lg"></i></a>
+              <a href="https://x.com/Mohamed22026704" class="me-2"><i class="fab fa-twitter fa-lg"></i></a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="col-lg-3 col-md-6">
+          <h6 class="fw-bold mb-3">Newsletter</h6>
+          <p class="small mb-2">Get our latest updates and offers — no spam.</p>
+          <form id="footerNewsletter" class="d-flex gap-2">
+            <input id="newsletterEmail" type="email" class="form-control form-control-sm" placeholder="Your email"
+              required>
+            <button class="btn btn-primary btn-sm" type="submit">Subscribe</button>
+          </form>
+          <div id="newsletterMsg" class="small mt-2"></div>
+        </div>
+      </div>
+
+      <hr class="border-secondary mt-4">
+
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center small">
+        <div class="mb-2 mb-md-0">&copy; <span id="siteYearFooter"></span> Mini Shop. All rights reserved.</div>
+        <div>
+          <a href="#" id="backToTop" class="text-decoration-none small">Back to top ↑</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="js/auth.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    Auth.requireAuth();
+    Cart.init({
+      container: '#cartContainer',
+      totalEl: '#cartTotal',
+      clearBtn: '#clearCartBtn',
+      checkoutBtn: '#checkoutBtn'
+    });
+    Cart.updateCountBadge('#cartCountBadge');
+  </script>
+</body>
+</html>
